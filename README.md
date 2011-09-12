@@ -6,7 +6,7 @@ Eventually, this project will become an [Ender](http://ender.no.de/) package.
 
 ### How it Works, and How to Use It
 
-For a concise example, take a look at the source of [example.html](example.html). If you're looking for a more in-depth explanation, read on.
+For a concise example, take a look at [the source of example.html](https://github.com/richardhenry/gravel/blob/master/example.html). If you're looking for a more in-depth explanation, read on.
 
 This is the HTML list that we would like to filter:
 
@@ -38,7 +38,7 @@ If you filtered this list using:
 
     gravel.tagify($("ol#names li"), "s");
 
-Which will turn the HTML into something like this:
+Which will turn the HTML into something like this (elements that did not match now have `style="display:none;"`):
 
     <ol id="names">
         <li data-keywords="lovett,daria" style="display:none;">Lovett Daria</li>
@@ -56,7 +56,7 @@ Good luck! If you need help, ask [@richardhenry on Twitter](http://twitter.com/r
 
 ### Performance
 
-I was able to filter the list in `example.html` against a 1 char search term at ~376 times/sec, and against two search terms (4 chars and 5 chars) at ~316 times/sec, using Safari 5.1 on Mac OS X 10.7.1 (2.7 GHz Intel Core i7).
+I was able to filter the 100 item list in example.html against a 1 char search term at ~376 times/sec, and against two search terms (4 chars and 5 chars) at ~316 times/sec, using Safari 5.1 on Mac OS X 10.7.1 (2.7 GHz Intel Core i7).
 
 Here's the jsPerf page for you to try it out yourself: http://jsperf.com/gravel (Click the "run tests" button.)
 
@@ -68,7 +68,7 @@ I would like to ensure support for all major modern browsers, and Internet Explo
 
 ### Dependencies
 
-This repository includes `ender.min.js`, which is a minified copy of the `ender-js` and `jeesh` packages. If you want to rebuild that file, or add other Ender dependencies, you will need to [install Ender](http://ender.no.de/) and run `ender build jeesh` in this directory.
+This repository includes ender.min.js, which is a minified copy of the `ender-js` and `jeesh` packages. If you want to rebuild that file, or add other Ender dependencies, you will need to [install Ender](http://ender.no.de/) and run `ender build jeesh` in this directory.
 
 ### License
 
