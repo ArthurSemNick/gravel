@@ -4,9 +4,61 @@ This is a proof of concept for a simple (and pretty fast) JavaScript search-as-y
 
 Eventually, this project will become an [Ender](http://ender.no.de/) package.
 
+### How it Works, and How to Use It
+
+For a concise example, take a look at the source of [example.html](example.html). If you're looking for a more in-depth explanation, read on.
+
+This is the HTML list that we would like to filter:
+
+    <ol id="names">
+        <li>Lovett Daria</li>
+        <li>Rebecca Sherwood</li>
+        <li>Maryann Terrie</li>
+        <li>Ephraim Samara</li>
+        <li>Forrest Florence</li>
+    </ol>
+
+Now, this list doesn't have any keywords to search against yet. To tagify these elements, we need to do this:
+
+    gravel.tagify($("ol#names li"));
+
+Our HTML now effectively looks like this, and is ready to be filtered:
+
+    <ol id="names">
+        <li data-keywords="lovett,daria">Lovett Daria</li>
+        <li data-keywords="rebecca,sherwood">Rebecca Sherwood</li>
+        <li data-keywords="maryann,terrie">Maryann Terrie</li>
+        <li data-keywords="ephraim,samara">Ephraim Samara</li>
+        <li data-keywords="forrest,florence">Forrest Florence</li>
+    </ol>
+
+Note that you can improve the performance of your page by adding the `data-keywords` attribute to those elements on the server-side, skipping the tagify method altogether. You could also add other keywords you want to be able to search against, such as information that cannot be extracted from the element itself!
+
+If you filtered this list using:
+
+    gravel.tagify($("ol#names li"), "s");
+
+Which will turn the HTML into something like this:
+
+    <ol id="names">
+        <li data-keywords="lovett,daria" style="display:none;">Lovett Daria</li>
+        <li data-keywords="rebecca,sherwood">Rebecca Sherwood</li>
+        <li data-keywords="maryann,terrie" style="display:none;">Maryann Terrie</li>
+        <li data-keywords="ephraim,samara">Ephraim Samara</li>
+        <li data-keywords="forrest,florence" style="display:none;">Forrest Florence</li>
+    </ol>
+
+Keywords and queries will automatically be lowercased; you can customize this behavior by passing in your own keywordFunc and queryFunc functions. Take a look at the source code for gravel.js to see how to do that.
+
+You can also customize the behavior for a match or non-match; the default is to show or hide the element, but you can easily add/remove a class or change the text instead.
+
+Good luck! If you need help, ask [@richardhenry on Twitter](http://twitter.com/richardhenry).
+
 ### Performance
 
-I was able to filter the list in `example.html` against a 1 character search term ~250 times/sec, and against two 8 character search terms at ~245 times/sec, using Safari 5.1 on Mac OS X 10.7.1 (2.7 GHz Intel Core i7).
+I was able to filter the list in `example.html` against a 1 char search term at ~376 times/sec, and against two search terms (4 chars and 5 chars) at ~316 times/sec, using Safari 5.1 on Mac OS X 10.7.1 (2.7 GHz Intel Core i7).
+
+Here's the jsPerf page for you to try it out yourself: http://jsperf.com/gravel (Click the "run tests" button.)
 
 ### Browser Support
 
