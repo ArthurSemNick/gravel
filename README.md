@@ -34,11 +34,11 @@ Our HTML now effectively looks like this, and is ready to be filtered:
 
 Note that you can improve the performance of your page by adding the `data-keywords` attribute to those elements on the server-side, skipping the tagify method altogether. You could also add other keywords you want to be able to search against, such as information that cannot be extracted from the element itself!
 
-If you filtered this list using:
+If you filtered this list against "s" by doing:
 
-    gravel.tagify($("ol#names li"), "s");
+    gravel.filter($("ol#names li"), "s");
 
-Which will turn the HTML into something like this (elements that did not match now have `style="display:none;"`):
+The HTML will be transformed into something like this (elements that did not match now have `style="display:none;"`):
 
     <ol id="names">
         <li data-keywords="lovett,daria" style="display:none;">Lovett Daria</li>
