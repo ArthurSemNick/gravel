@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>gravel example</title>
+
+  <script src="ender.min.js"></script>
+  <script src="gravel.js"></script>
+
+  <script>
+    // 1. Wait until the DOM is ready:
+    $.domReady(function () {
+      // 2. Generate keywords for each "ol#names li" element, and store that info as a data-keywords attribute:
+      gravel.tagify($("ol#names li"));
+      // 3. Listen for change events on the "input#search" element, then call gravel.filter( ... ):
+      $("input#search").bind('keyup change', function () {
+        gravel.filter($("ol#names li"), $("input#search").val());
+      });
+    });
+  </script>
+  
+  <style>
+    body {
+      font-family: 'Helvetica Neue', 'Nimbus Sans L', Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <p>Type in the text input to filter this list of names.</p>
+  
+  <input id="search" type="text">
+  
+  <ol id="names">
+    <li>Anne Cleva</li>
+    <li>Leitha Adelaide</li>
+    <li>Patti Rayne</li>
+    <li>Frankie Lyndon</li>
+    <li>Allie Quinten</li>
+    <li>Tella Linzy</li>
+    <li>Heath Booker</li>
+    <li>Melany Mellissa</li>
+    <li>Quiana Lawson</li>
+    <li>Trevon Anice</li>
+    <li>Clare Jaxson</li>
+    <li>Elmira Dot</li>
+    <li>Maricela Kinte</li>
+    <li>Alessandro Janeen</li>
+    <li>Melvina Irene</li>
+    <li>Marilou Alfonzo</li>
+    <li>Jaleel Madilyn</li>
+    <li>Lovett Daria</li>
+    <li>Rebecca Sherwood</li>
+    <li>Maryann Terrie</li>
+    <li>Ephraim Samara</li>
+    <li>Forrest Florence</li>
+    <li>Ilda Caro</li>
+    <li>Shirlene Holden</li>
+    <li>Krystal Sydell</li>
+    <li>Willa Sherlyn</li>
+    <li>York Twila</li>
+    <li>Kinsley Aisha</li>
+    <li>Von Tyquan</li>
+    <li>Tamica Pasquale</li>
+    <li>Kolby Anabella</li>
+    <li>Kaiya Kaila</li>
+    <li>Hedy Buell</li>
+    <li>Davonta Darlyne</li>
+    <li>Deena Marceline</li>
+    <li>Ardeth Lafayette</li>
+    <li>Oral Fawn</li>
+    <li>Con Buna</li>
+    <li>Daniel Haiden</li>
+    <li>Joella Kira</li>
+    <li>Shianne Francesca</li>
+    <li>Dayana Kaley</li>
+    <li>Sunshine Rhona</li>
+    <li>Melvyn Huy</li>
+    <li>Clinton Sherryl</li>
+    <li>Virginia Lucero</li>
+    <li>Delmas Tammie</li>
+    <li>Marian Alonso</li>
+    <li>Corey Dotty</li>
+    <li>Carmen Nunzio</li>
+    <li>Willam Victor</li>
+    <li>Alto Luigi</li>
+    <li>Mart Billy</li>
+    <li>Omari Melville</li>
+    <li>Annetta Cassidy</li>
+    <li>Aubrie Pink</li>
+    <li>Austen Caddie</li>
+    <li>Shannen Vashon</li>
+    <li>Caden Clifford</li>
+    <li>Elmer Macy</li>
+    <li>Wally Icey</li>
+    <li>Delores Augustina</li>
+    <li>Jerod Zavier</li>
+    <li>Tracey Marylou</li>
+    <li>Karan Louie</li>
+    <li>Lollie Emmett</li>
+    <li>Orrin Deryl</li>
+    <li>Alonza Lauryn</li>
+    <li>Ben Nicola</li>
+    <li>Kelvin Linwood</li>
+    <li>Ana Estella</li>
+    <li>Makenzie Nannette</li>
+    <li>Jace Carie</li>
+    <li>Durwood Johney</li>
+    <li>Tiny Lurana</li>
+    <li>Belva Heidy</li>
+    <li>Nikhil Bettyjane</li>
+    <li>Addie Kael</li>
+    <li>Devyn Janelle</li>
+    <li>Collin Primus</li>
+    <li>Damien Suzette</li>
+    <li>Gurney Colin</li>
+    <li>Marylou Dustin</li>
+    <li>Terrell Elwood</li>
+    <li>Ashlee Burton</li>
+    <li>Isobel Antonina</li>
+    <li>Sal Deborah</li>
+    <li>Norah Madora</li>
+    <li>Omer Stetson</li>
+    <li>Sariah Toy</li>
+    <li>Arah Carmella</li>
+    <li>Jamarion Reyna</li>
+    <li>Era Ozie</li>
+    <li>Brandee Sharron</li>
+    <li>Zavier Unnamed</li>
+    <li>Vernell Napoleon</li>
+    <li>Christion Arlan</li>
+    <li>Conor Collie</li>
+    <li>Tate Darold</li>
+    <li>Arch Achsah</li>
+  </ol>
+</body>
+</html>
